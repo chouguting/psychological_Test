@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingTestPicker = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if(showingTestPicker){
+            TestPickerView()
+        }else{
+            HomeView(showingTestPicker: $showingTestPicker)
+        }
+        
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+.previewInterfaceOrientation(.portrait)
     }
 }
