@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @Binding var showingTestPicker:Bool
     @State var showThought=false
+    @State var showPopup=false
     var body: some View {
         VStack{
             Image("question").resizable().frame(width: 200, height: 200, alignment: .center).contextMenu(){
@@ -28,9 +29,10 @@ struct HomeView: View {
             
             Button() {
                 showingTestPicker=true
+                showPopup=true
             } label: {
                 Text("Start").font(.title2)
-            }.buttonStyle(.bordered)
+            }
         }
         
 

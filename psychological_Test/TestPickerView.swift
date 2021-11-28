@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TestPickerView: View {
+    @State var showPopup=false
     var body: some View {
         NavigationView {
             List {
@@ -40,6 +41,21 @@ struct TestPickerView: View {
                 } label: {
                     Text("我是誰？我在哪裡？")
                 }
+                
+                Button {
+                    showPopup=true
+                } label: {
+                    Text("喜歡嗎")
+                }.buttonStyle(.borderless).confirmationDialog("喜歡嗎", isPresented: $showPopup,titleVisibility: .visible) {
+                    Button("喜歡"){
+                        
+                    }
+                    Button("不喜歡"){
+                        
+                    }
+
+                }
+
             }.navigationTitle("選擇測驗")
         }
     }
